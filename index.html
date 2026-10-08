@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Regex Match Matrix</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#182848">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+
+            <div class="logo">
+                <span>R</span>
+                <small>Regex</small>
+            </div>
+
+            <div>
+                <h1>Regex Match Matrix</h1>
+                <p>Lightweight Regex Engine From Scratch</p>
+            </div>
+
+            <button id="installBtn" class="install-btn" hidden>📱 Install App</button>
+
+        </header>
+
+
+        <!-- INPUT SECTION -->
+        <section class="input-section">
+
+            <h2>Regex Matcher</h2>
+
+            <label for="pattern">Regex Pattern</label>
+
+            <input
+                type="text"
+                id="pattern"
+                placeholder="Example: abc"
+            >
+
+
+            <label for="inputString">Input String</label>
+
+            <input
+                type="text"
+                id="inputString"
+                placeholder="Example: abc"
+            >
+
+
+            <div class="buttons">
+
+                <button onclick="checkRegex()">
+                    Check Match
+                </button>
+
+                <button onclick="clearApp()" class="clear">
+                    Clear
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULT -->
+        <div id="result"></div>
+
+
+        <!-- VERIFICATION MATRIX -->
+        <section>
+
+            <h2>Verification Matrix</h2>
+
+            <div id="matrix">
+
+                <p class="empty">
+                    Enter a pattern and string to see
+                    step-by-step verification.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUPPORTED REGEX -->
+        <section>
+
+            <h2>Supported Regex</h2>
+
+            <div class="features">
+
+                <span>.</span>
+                <span>*</span>
+                <span>+</span>
+                <span>?</span>
+                <span>|</span>
+                <span>[a-z]</span>
+                <span>[0-9]</span>
+                <span>^</span>
+                <span>$</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- TEST CASES -->
+        <section>
+
+            <h2>Test Cases</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <tr>
+                        <th>Type</th>
+                        <th>Pattern</th>
+                        <th>String</th>
+                        <th>Expected</th>
+                    </tr>
+
+                    <tr>
+                        <td class="valid">Valid</td>
+                        <td>a*b</td>
+                        <td>aaab</td>
+                        <td>✓ MATCH</td>
+                    </tr>
+
+                    <tr>
+                        <td class="valid">Valid</td>
+                        <td>abc</td>
+                        <td>abc</td>
+                        <td>✓ MATCH</td>
+                    </tr>
+
+                    <tr>
+                        <td class="valid">Valid</td>
+                        <td>cat|dog</td>
+                        <td>dog</td>
+                        <td>✓ MATCH</td>
+                    </tr>
+
+                    <tr>
+                        <td class="invalid">Invalid</td>
+                        <td>a*b</td>
+                        <td>aaac</td>
+                        <td>✗ NO MATCH</td>
+                    </tr>
+
+                    <tr>
+                        <td class="invalid">Invalid</td>
+                        <td>abc</td>
+                        <td>abd</td>
+                        <td>✗ NO MATCH</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                Regex Match Matrix • Built from Scratch
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+
+    <script>
+        let deferredInstallPrompt = null;
+        const installBtn = document.getElementById("installBtn");
+
+        window.addEventListener("beforeinstallprompt", (event) => {
+            event.preventDefault();
+            deferredInstallPrompt = event;
+            if (installBtn) installBtn.hidden = false;
+        });
+
+        if (installBtn) {
+            installBtn.addEventListener("click", async () => {
+                if (!deferredInstallPrompt) return;
+                deferredInstallPrompt.prompt();
+                await deferredInstallPrompt.userChoice;
+                deferredInstallPrompt = null;
+                installBtn.hidden = true;
+            });
+        }
+
+        window.addEventListener("appinstalled", () => {
+            if (installBtn) installBtn.hidden = true;
+        });
+
+        if ("serviceWorker" in navigator && location.protocol !== "file:") {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./service-worker.js")
+                    .catch(error => console.log("Service worker registration failed:", error));
+            });
+        }
+    </script>
+
+</body>
+
+</

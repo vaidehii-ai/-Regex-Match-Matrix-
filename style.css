@@ -1,0 +1,360 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fa;
+    color: #222;
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #182848, #3b5998);
+    color: white;
+    padding: 30px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* LOGO */
+
+.logo {
+    width: 75px;
+    height: 75px;
+    border-radius: 18px;
+    background: white;
+    color: #182848;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.logo span {
+    font-size: 32px;
+}
+
+.logo small {
+    font-size: 10px;
+}
+
+
+/* TITLE */
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin: 8px 0 0;
+    opacity: 0.85;
+}
+
+
+/* INPUT CARD */
+
+.input-section {
+    background: white;
+    margin-top: 25px;
+    padding: 28px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.input-section h2 {
+    margin-top: 0;
+}
+
+
+/* LABEL */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+
+/* INPUT */
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 7px;
+    border: 1px solid #d5d9e0;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #3b5998;
+    box-shadow: 0 0 0 3px rgba(59, 89, 152, 0.1);
+}
+
+
+/* BUTTONS */
+
+.buttons {
+    margin-top: 22px;
+}
+
+button {
+    padding: 13px 28px;
+    border: none;
+    border-radius: 10px;
+    background: #182848;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.clear {
+    background: #777;
+    margin-left: 10px;
+}
+
+
+/* RESULT */
+
+#result {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 25px;
+}
+
+.match {
+    color: green;
+}
+
+.no-match {
+    color: red;
+}
+
+
+/* SECTIONS */
+
+section {
+    margin-top: 25px;
+}
+
+h2 {
+    margin-bottom: 12px;
+}
+
+
+/* MATRIX */
+
+.matrix-table {
+    overflow-x: auto;
+}
+
+.matrix-table table {
+    min-width: 700px;
+}
+
+
+/* TABLE */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+th,
+td {
+    padding: 13px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #182848;
+    color: white;
+}
+
+tr:hover {
+    background: #f5f7fb;
+}
+
+
+/* VALID / INVALID */
+
+.valid {
+    color: green;
+    font-weight: bold;
+}
+
+.invalid {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* SUPPORTED FEATURES */
+
+.features {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.features span {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* EMPTY MESSAGE */
+
+.empty {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #666;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 15px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo span {
+        font-size: 26px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    header p {
+        font-size: 13px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .clear {
+        margin-left: 0;
+    }
+
+    table {
+        font-size: 13px;
+    }
+}
+
+/* PWA INSTALL BUTTON */
+.install-btn {
+    margin-left: auto;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #182848;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* EXTRA MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    header > div:nth-child(2) {
+        flex: 1 1 calc(100% - 80px);
+        min-width: 0;
+    }
+
+    .install-btn {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .container {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .input-section, section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    #result {
+        font-size: 24px;
+        margin: 20px 8px;
+    }
+
+    .matrix-table table {
+        min-width: 620px;
+    }
+}
